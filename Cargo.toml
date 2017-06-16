@@ -1,0 +1,18 @@
+[package]
+authors = ["Kornel <kornel@geekhood.net>"]
+description = "Unreliable bindings for libpng. They're likely to bring sorrow and regret. Please use a native Rust PNG library instead.\n\nBundles libpng 1.6.29 as a fallback. Please check whether this version is still secure before using this package."
+documentation = "http://libpng.org/pub/png/libpng-manual.txt"
+homepage = "http://www.libpng.org/pub/png/libpng.html"
+license = "Libpng"
+links = "libpng"
+name = "libpng-sys"
+repository = "https://github.com/pornel/rust-libpng-sys.git"
+version = "0.1.0"
+
+[build-dependencies]
+gcc = "0.3.51"
+pkg-config = "0.3.9"
+
+[dependencies]
+libc = "0.2.24"
+libz-sys = "1.0.14"
