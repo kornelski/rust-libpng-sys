@@ -3,6 +3,7 @@ extern crate gcc;
 
 use std::env;
 use std::process;
+use std::fs;
 
 fn main() {
     let wants_static = env::var("PNG_STATIC").is_ok();
@@ -93,6 +94,7 @@ fn build_static() {
         println!("cargo:rustc-link-lib=z");
     }
 
+    println!("cargo:include={}", fs::canonicalize("vendor").unwrap().display());
     println!("cargo:root={}", env::var("OUT_DIR").unwrap());
 
     cc
