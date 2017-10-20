@@ -1,5 +1,5 @@
 extern crate pkg_config;
-extern crate gcc;
+extern crate cc;
 
 use std::env;
 use std::process;
@@ -75,7 +75,8 @@ fn try_pkgconfig(wants_static: bool) -> bool {
     false
 }
 fn build_static() {
-    let mut cc = gcc::Config::new();
+    let mut cc = cc::Build::new();
+    cc.warnings(false);
     cc.include("vendor");
 
     if let Ok(inc) = env::var("DEP_Z_INCLUDE") {
