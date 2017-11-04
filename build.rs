@@ -6,7 +6,7 @@ use std::process;
 use std::fs;
 
 fn main() {
-    let wants_static = env::var("PNG_STATIC").is_ok();
+    let wants_static = cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
 
     if !try_libpng_config(wants_static) && !try_pkgconfig(wants_static) {
         build_static();
