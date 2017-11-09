@@ -8,7 +8,7 @@ links = "libpng"
 name = "libpng-sys"
 readme = "README.md"
 repository = "https://github.com/pornel/rust-libpng-sys.git"
-version = "0.1.4"
+version = "0.1.5"
 
 [build-dependencies]
 cc = "1.0.3"
