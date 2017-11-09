@@ -45,7 +45,6 @@ pub const PNG_USER_CHUNK_MALLOC_MAX: c_uint = 8000000;
 pub const PNG_USER_HEIGHT_MAX: c_uint = 1000000;
 pub const PNG_USER_WIDTH_MAX: c_uint = 1000000;
 pub const PNG_ZBUF_SIZE: c_uint = 8192;
-pub const PNG_ZLIB_VERNUM: c_uint = 4688;
 pub const PNG_Z_DEFAULT_COMPRESSION: c_int = -1;
 pub const PNG_Z_DEFAULT_NOFILTER_STRATEGY: c_uint = 0;
 pub const PNG_Z_DEFAULT_STRATEGY: c_uint = 1;
