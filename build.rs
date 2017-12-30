@@ -62,6 +62,7 @@ fn libpng_config(wants_static: bool, arg: &str) -> Option<String> {
 fn try_pkgconfig(wants_static: bool) -> bool {
     let mut pkg = pkg_config::Config::new();
     pkg.statik(wants_static);
+    pkg.atleast_version("1.4"); // 1.2 is shite
     if let Ok(lib) = pkg.probe("libpng") {
         if let Some(path) = lib.include_paths.get(0) {
             println!("cargo:include={}", path.display());
