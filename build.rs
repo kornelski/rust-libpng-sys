@@ -1,9 +1,10 @@
 extern crate pkg_config;
 extern crate cc;
+extern crate dunce;
 
 use std::env;
 use std::process;
-use std::fs;
+use std::path::PathBuf;
 
 fn main() {
     let wants_static = cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
@@ -23,10 +24,8 @@ fn try_libpng_config(wants_static: bool) -> bool {
     }
 
     if let Some(iopts) = libpng_config(wants_static, "--I_opts") {
-        for opt in iopts.split(" -I") {
-            let dir = if opt.starts_with("-I") {&opt[2..]} else {opt};
-            println!("cargo:include={}", dir);
-        }
+        let dirs: Vec<_> = iopts.split(" -I").map(|opt| if opt.starts_with("-I") {&opt[2..]} else {opt}).collect();
+        println!("cargo:include={}", env::join_paths(dirs).unwrap().to_string_lossy());
     }
 
     if let Some(libs) = libpng_config(wants_static, "--libs") {
@@ -74,13 +73,16 @@ fn try_pkgconfig(wants_static: bool) -> bool {
     }
     false
 }
+
 fn build_static() {
     let mut cc = cc::Build::new();
     cc.warnings(false);
-    cc.include("vendor");
 
-    if let Ok(inc) = env::var("DEP_Z_INCLUDE") {
-        cc.include(inc);
+    let vendor = dunce::canonicalize("vendor").unwrap();
+    let mut includes = vec![vendor];
+
+    if let Some(inc) = env::var_os("DEP_Z_INCLUDE") {
+        includes.push(PathBuf::from(inc));
         if let Ok(lib) = env::var("DEP_Z_ROOT") {
             println!("cargo:rustc-link-search=native={}", lib);
             println!("cargo:rustc-link-lib=static=zlib");
@@ -89,14 +91,18 @@ fn build_static() {
         }
     } else if let Ok(libz) = pkg_config::probe_library("z") {
         for path in libz.include_paths {
-            cc.include(path);
+            includes.push(PathBuf::from(path));
         }
     } else {
         println!("cargo:rustc-link-lib=z");
     }
 
-    println!("cargo:include={}", fs::canonicalize("vendor").unwrap().display());
+    println!("cargo:include={}", env::join_paths(&includes).unwrap().to_string_lossy());
     println!("cargo:root={}", env::var("OUT_DIR").unwrap());
+
+    for path in includes {
+        cc.include(path);
+    }
 
     cc
         .file("vendor/png.c")
