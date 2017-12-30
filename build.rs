@@ -15,6 +15,14 @@ fn main() {
 }
 
 fn try_libpng_config(wants_static: bool) -> bool {
+    if let Some(ver) = libpng_config(wants_static, "--version") {
+        if ver.trim_left().starts_with("1.2") {
+            return false;
+        }
+    } else {
+        return false;
+    }
+
     if let Some(libdir) = libpng_config(wants_static, "--libdir") {
         let libdir = libdir.trim_right();
         println!("cargo:rustc-link-search=native={}", libdir.trim_right());
