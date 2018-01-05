@@ -15,6 +15,11 @@ fn main() {
 }
 
 fn try_libpng_config(wants_static: bool) -> bool {
+    let cross_compile = env::var("TARGET") != env::var("HOST");
+    if cross_compile {
+        return false; // libpng-config is not aware of platform differences
+    }
+
     if let Some(ver) = libpng_config(wants_static, "--version") {
         if ver.trim_left().starts_with("1.2") {
             return false;
@@ -92,12 +97,6 @@ fn build_static() {
 
     if let Some(inc) = env::var_os("DEP_Z_INCLUDE") {
         includes.push(PathBuf::from(inc));
-        if let Ok(lib) = env::var("DEP_Z_ROOT") {
-            println!("cargo:rustc-link-search=native={}", lib);
-            println!("cargo:rustc-link-lib=static=zlib");
-        } else {
-            println!("cargo:rustc-link-lib=zlib");
-        }
     } else if let Ok(libz) = pkg_config::probe_library("z") {
         for path in libz.include_paths {
             includes.push(PathBuf::from(path));
