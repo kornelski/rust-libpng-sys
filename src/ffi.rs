@@ -278,6 +278,7 @@ pub struct png_color {
     pub blue: u8,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_color_struct() {
     assert_eq!(::std::mem::size_of::<png_color>(), 3usize, concat!("Size of: ", stringify!(png_color)));
     assert_eq!(::std::mem::align_of::<png_color>(), 1usize, concat!("Alignment of ", stringify!(png_color)));
@@ -300,6 +301,7 @@ pub struct png_color_16 {
     pub gray: u16,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_color_16_struct() {
     assert_eq!(::std::mem::size_of::<png_color_16>(), 10usize, concat!("Size of: ", stringify!(png_color_16)));
     assert_eq!(::std::mem::align_of::<png_color_16>(), 2usize, concat!("Alignment of ", stringify!(png_color_16)));
@@ -324,6 +326,7 @@ pub struct png_color_8 {
     pub alpha: u8,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_color_8_struct() {
     assert_eq!(::std::mem::size_of::<png_color_8>(), 5usize, concat!("Size of: ", stringify!(png_color_8)));
     assert_eq!(::std::mem::align_of::<png_color_8>(), 1usize, concat!("Alignment of ", stringify!(png_color_8)));
@@ -348,6 +351,7 @@ pub struct png_sPLT_entry {
     pub frequency: u16,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_sPLT_entry_struct() {
     assert_eq!(::std::mem::size_of::<png_sPLT_entry>(), 10usize, concat!("Size of: ", stringify!(png_sPLT_entry)));
     assert_eq!(::std::mem::align_of::<png_sPLT_entry>(), 2usize, concat!("Alignment of ", stringify!(png_sPLT_entry)));
@@ -371,6 +375,7 @@ pub struct png_sPLT {
     pub nentries: i32,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_sPLT_struct() {
     assert_eq!(::std::mem::size_of::<png_sPLT>(), 32usize, concat!("Size of: ", stringify!(png_sPLT)));
     assert_eq!(::std::mem::align_of::<png_sPLT>(), 8usize, concat!("Alignment of ", stringify!(png_sPLT)));
@@ -396,6 +401,7 @@ pub struct png_text {
     pub lang_key: *mut c_char,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_text_struct() {
     assert_eq!(::std::mem::size_of::<png_text>(), 56usize, concat!("Size of: ", stringify!(png_text)));
     assert_eq!(::std::mem::align_of::<png_text>(), 8usize, concat!("Alignment of ", stringify!(png_text)));
@@ -423,6 +429,7 @@ pub struct png_time {
     pub second: u8,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_time_struct() {
     assert_eq!(::std::mem::size_of::<png_time>(), 8usize, concat!("Size of: ", stringify!(png_time)));
     assert_eq!(::std::mem::align_of::<png_time>(), 2usize, concat!("Alignment of ", stringify!(png_time)));
@@ -447,6 +454,7 @@ pub struct png_unknown_chunk {
     pub location: u8,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_unknown_chunk_t() {
     assert_eq!(::std::mem::size_of::<png_unknown_chunk>(), 32usize, concat!("Size of: ", stringify!(png_unknown_chunk)));
     assert_eq!(::std::mem::align_of::<png_unknown_chunk>(), 8usize, concat!("Alignment of ", stringify!(png_unknown_chunk)));
@@ -471,6 +479,7 @@ pub struct png_row_info {
     pub pixel_depth: u8,
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_row_info_struct() {
     assert_eq!(::std::mem::size_of::<png_row_info>(), 24usize, concat!("Size of: ", stringify!(png_row_info)));
     assert_eq!(::std::mem::align_of::<png_row_info>(), 8usize, concat!("Alignment of ", stringify!(png_row_info)));
@@ -781,6 +790,7 @@ pub struct png_image {
     pub message: [c_char; 64usize],
 }
 #[test]
+#[cfg(target_pointer_width = "64")]
 fn bindgen_test_layout_png_image() {
     assert_eq!(::std::mem::size_of::<png_image>(), 104usize, concat!("Size of: ", stringify!(png_image)));
     assert_eq!(::std::mem::align_of::<png_image>(), 8usize, concat!("Alignment of ", stringify!(png_image)));
