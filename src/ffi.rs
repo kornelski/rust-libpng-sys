@@ -281,21 +281,9 @@ pub struct png_color {
 fn bindgen_test_layout_png_color_struct() {
     assert_eq!(::std::mem::size_of::<png_color>(), 3usize, concat!("Size of: ", stringify!(png_color)));
     assert_eq!(::std::mem::align_of::<png_color>(), 1usize, concat!("Alignment of ", stringify!(png_color)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color)).red as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(red))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color)).green as *const _ as usize },
-        1usize,
-        concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(green))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color)).blue as *const _ as usize },
-        2usize,
-        concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(blue))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_color)).red as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(red)));
+    assert_eq!(unsafe { &(*(0 as *const png_color)).green as *const _ as usize }, 1usize, concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(green)));
+    assert_eq!(unsafe { &(*(0 as *const png_color)).blue as *const _ as usize }, 2usize, concat!("Alignment of field: ", stringify!(png_color), "::", stringify!(blue)));
 }
 impl Clone for png_color {
     fn clone(&self) -> Self {
@@ -314,36 +302,12 @@ pub struct png_color_16 {
 #[test]
 fn bindgen_test_layout_png_color_16_struct() {
     assert_eq!(::std::mem::size_of::<png_color_16>(), 10usize, concat!("Size of: ", stringify!(png_color_16)));
-    assert_eq!(
-        ::std::mem::align_of::<png_color_16>(),
-        2usize,
-        concat!("Alignment of ", stringify!(png_color_16))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_16)).index as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(index))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_16)).red as *const _ as usize },
-        2usize,
-        concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(red))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_16)).green as *const _ as usize },
-        4usize,
-        concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(green))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_16)).blue as *const _ as usize },
-        6usize,
-        concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(blue))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_16)).gray as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(gray))
-    );
+    assert_eq!(::std::mem::align_of::<png_color_16>(), 2usize, concat!("Alignment of ", stringify!(png_color_16)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_16)).index as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(index)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_16)).red as *const _ as usize }, 2usize, concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(red)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_16)).green as *const _ as usize }, 4usize, concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(green)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_16)).blue as *const _ as usize }, 6usize, concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(blue)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_16)).gray as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_color_16), "::", stringify!(gray)));
 }
 impl Clone for png_color_16 {
     fn clone(&self) -> Self {
@@ -363,31 +327,11 @@ pub struct png_color_8 {
 fn bindgen_test_layout_png_color_8_struct() {
     assert_eq!(::std::mem::size_of::<png_color_8>(), 5usize, concat!("Size of: ", stringify!(png_color_8)));
     assert_eq!(::std::mem::align_of::<png_color_8>(), 1usize, concat!("Alignment of ", stringify!(png_color_8)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_8)).red as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(red))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_8)).green as *const _ as usize },
-        1usize,
-        concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(green))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_8)).blue as *const _ as usize },
-        2usize,
-        concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(blue))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_8)).gray as *const _ as usize },
-        3usize,
-        concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(gray))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_color_8)).alpha as *const _ as usize },
-        4usize,
-        concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(alpha))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_color_8)).red as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(red)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_8)).green as *const _ as usize }, 1usize, concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(green)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_8)).blue as *const _ as usize }, 2usize, concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(blue)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_8)).gray as *const _ as usize }, 3usize, concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(gray)));
+    assert_eq!(unsafe { &(*(0 as *const png_color_8)).alpha as *const _ as usize }, 4usize, concat!("Alignment of field: ", stringify!(png_color_8), "::", stringify!(alpha)));
 }
 impl Clone for png_color_8 {
     fn clone(&self) -> Self {
@@ -405,41 +349,13 @@ pub struct png_sPLT_entry {
 }
 #[test]
 fn bindgen_test_layout_png_sPLT_entry_struct() {
-    assert_eq!(
-        ::std::mem::size_of::<png_sPLT_entry>(),
-        10usize,
-        concat!("Size of: ", stringify!(png_sPLT_entry))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<png_sPLT_entry>(),
-        2usize,
-        concat!("Alignment of ", stringify!(png_sPLT_entry))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT_entry)).red as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(red))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT_entry)).green as *const _ as usize },
-        2usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(green))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT_entry)).blue as *const _ as usize },
-        4usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(blue))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT_entry)).alpha as *const _ as usize },
-        6usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(alpha))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT_entry)).frequency as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(frequency))
-    );
+    assert_eq!(::std::mem::size_of::<png_sPLT_entry>(), 10usize, concat!("Size of: ", stringify!(png_sPLT_entry)));
+    assert_eq!(::std::mem::align_of::<png_sPLT_entry>(), 2usize, concat!("Alignment of ", stringify!(png_sPLT_entry)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT_entry)).red as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(red)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT_entry)).green as *const _ as usize }, 2usize, concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(green)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT_entry)).blue as *const _ as usize }, 4usize, concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(blue)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT_entry)).alpha as *const _ as usize }, 6usize, concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(alpha)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT_entry)).frequency as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_sPLT_entry), "::", stringify!(frequency)));
 }
 impl Clone for png_sPLT_entry {
     fn clone(&self) -> Self {
@@ -458,26 +374,10 @@ pub struct png_sPLT {
 fn bindgen_test_layout_png_sPLT_struct() {
     assert_eq!(::std::mem::size_of::<png_sPLT>(), 32usize, concat!("Size of: ", stringify!(png_sPLT)));
     assert_eq!(::std::mem::align_of::<png_sPLT>(), 8usize, concat!("Alignment of ", stringify!(png_sPLT)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT)).name as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(name))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT)).depth as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(depth))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT)).entries as *const _ as usize },
-        16usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(entries))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_sPLT)).nentries as *const _ as usize },
-        24usize,
-        concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(nentries))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT)).name as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(name)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT)).depth as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(depth)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT)).entries as *const _ as usize }, 16usize, concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(entries)));
+    assert_eq!(unsafe { &(*(0 as *const png_sPLT)).nentries as *const _ as usize }, 24usize, concat!("Alignment of field: ", stringify!(png_sPLT), "::", stringify!(nentries)));
 }
 impl Clone for png_sPLT {
     fn clone(&self) -> Self {
@@ -499,41 +399,13 @@ pub struct png_text {
 fn bindgen_test_layout_png_text_struct() {
     assert_eq!(::std::mem::size_of::<png_text>(), 56usize, concat!("Size of: ", stringify!(png_text)));
     assert_eq!(::std::mem::align_of::<png_text>(), 8usize, concat!("Alignment of ", stringify!(png_text)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).compression as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(compression))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).key as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(key))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).text as *const _ as usize },
-        16usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(text))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).text_length as *const _ as usize },
-        24usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(text_length))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).itxt_length as *const _ as usize },
-        32usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(itxt_length))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).lang as *const _ as usize },
-        40usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(lang))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_text)).lang_key as *const _ as usize },
-        48usize,
-        concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(lang_key))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_text)).compression as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(compression)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).key as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(key)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).text as *const _ as usize }, 16usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(text)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).text_length as *const _ as usize }, 24usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(text_length)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).itxt_length as *const _ as usize }, 32usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(itxt_length)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).lang as *const _ as usize }, 40usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(lang)));
+    assert_eq!(unsafe { &(*(0 as *const png_text)).lang_key as *const _ as usize }, 48usize, concat!("Alignment of field: ", stringify!(png_text), "::", stringify!(lang_key)));
 }
 impl Clone for png_text {
     fn clone(&self) -> Self {
@@ -554,36 +426,12 @@ pub struct png_time {
 fn bindgen_test_layout_png_time_struct() {
     assert_eq!(::std::mem::size_of::<png_time>(), 8usize, concat!("Size of: ", stringify!(png_time)));
     assert_eq!(::std::mem::align_of::<png_time>(), 2usize, concat!("Alignment of ", stringify!(png_time)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).year as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(year))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).month as *const _ as usize },
-        2usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(month))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).day as *const _ as usize },
-        3usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(day))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).hour as *const _ as usize },
-        4usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(hour))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).minute as *const _ as usize },
-        5usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(minute))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_time)).second as *const _ as usize },
-        6usize,
-        concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(second))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_time)).year as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(year)));
+    assert_eq!(unsafe { &(*(0 as *const png_time)).month as *const _ as usize }, 2usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(month)));
+    assert_eq!(unsafe { &(*(0 as *const png_time)).day as *const _ as usize }, 3usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(day)));
+    assert_eq!(unsafe { &(*(0 as *const png_time)).hour as *const _ as usize }, 4usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(hour)));
+    assert_eq!(unsafe { &(*(0 as *const png_time)).minute as *const _ as usize }, 5usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(minute)));
+    assert_eq!(unsafe { &(*(0 as *const png_time)).second as *const _ as usize }, 6usize, concat!("Alignment of field: ", stringify!(png_time), "::", stringify!(second)));
 }
 impl Clone for png_time {
     fn clone(&self) -> Self {
@@ -601,31 +449,11 @@ pub struct png_unknown_chunk {
 #[test]
 fn bindgen_test_layout_png_unknown_chunk_t() {
     assert_eq!(::std::mem::size_of::<png_unknown_chunk>(), 32usize, concat!("Size of: ", stringify!(png_unknown_chunk)));
-    assert_eq!(
-        ::std::mem::align_of::<png_unknown_chunk>(),
-        8usize,
-        concat!("Alignment of ", stringify!(png_unknown_chunk))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_unknown_chunk)).name as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(name))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_unknown_chunk)).data as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(data))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_unknown_chunk)).size as *const _ as usize },
-        16usize,
-        concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(size))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_unknown_chunk)).location as *const _ as usize },
-        24usize,
-        concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(location))
-    );
+    assert_eq!(::std::mem::align_of::<png_unknown_chunk>(), 8usize, concat!("Alignment of ", stringify!(png_unknown_chunk)));
+    assert_eq!(unsafe { &(*(0 as *const png_unknown_chunk)).name as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(name)));
+    assert_eq!(unsafe { &(*(0 as *const png_unknown_chunk)).data as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(data)));
+    assert_eq!(unsafe { &(*(0 as *const png_unknown_chunk)).size as *const _ as usize }, 16usize, concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(size)));
+    assert_eq!(unsafe { &(*(0 as *const png_unknown_chunk)).location as *const _ as usize }, 24usize, concat!("Alignment of field: ", stringify!(png_unknown_chunk), "::", stringify!(location)));
 }
 impl Clone for png_unknown_chunk {
     fn clone(&self) -> Self {
@@ -645,41 +473,13 @@ pub struct png_row_info {
 #[test]
 fn bindgen_test_layout_png_row_info_struct() {
     assert_eq!(::std::mem::size_of::<png_row_info>(), 24usize, concat!("Size of: ", stringify!(png_row_info)));
-    assert_eq!(
-        ::std::mem::align_of::<png_row_info>(),
-        8usize,
-        concat!("Alignment of ", stringify!(png_row_info))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).width as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(width))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).rowbytes as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(rowbytes))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).color_type as *const _ as usize },
-        16usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(color_type))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).bit_depth as *const _ as usize },
-        17usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(bit_depth))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).channels as *const _ as usize },
-        18usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(channels))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_row_info)).pixel_depth as *const _ as usize },
-        19usize,
-        concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(pixel_depth))
-    );
+    assert_eq!(::std::mem::align_of::<png_row_info>(), 8usize, concat!("Alignment of ", stringify!(png_row_info)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).width as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(width)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).rowbytes as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(rowbytes)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).color_type as *const _ as usize }, 16usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(color_type)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).bit_depth as *const _ as usize }, 17usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(bit_depth)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).channels as *const _ as usize }, 18usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(channels)));
+    assert_eq!(unsafe { &(*(0 as *const png_row_info)).pixel_depth as *const _ as usize }, 19usize, concat!("Alignment of field: ", stringify!(png_row_info), "::", stringify!(pixel_depth)));
 }
 impl Clone for png_row_info {
     fn clone(&self) -> Self {
@@ -711,22 +511,10 @@ extern "C" {
     pub fn png_longjmp(png_ptr: &png_struct, val: c_int);
     pub fn png_reset_zstream(png_ptr: &mut png_struct) -> c_int;
     pub fn png_create_read_struct_2(
-        user_png_ver: *const c_char,
-        error_ptr: *mut c_void,
-        error_fn: png_error_ptr,
-        warn_fn: png_error_ptr,
-        mem_ptr: *mut c_void,
-        malloc_fn: png_malloc_ptr,
-        free_fn: png_free_ptr,
+        user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr, mem_ptr: *mut c_void, malloc_fn: png_malloc_ptr, free_fn: png_free_ptr
     ) -> *mut png_struct;
     pub fn png_create_write_struct_2(
-        user_png_ver: *const c_char,
-        error_ptr: *mut c_void,
-        error_fn: png_error_ptr,
-        warn_fn: png_error_ptr,
-        mem_ptr: *mut c_void,
-        malloc_fn: png_malloc_ptr,
-        free_fn: png_free_ptr,
+        user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr, mem_ptr: *mut c_void, malloc_fn: png_malloc_ptr, free_fn: png_free_ptr
     ) -> *mut png_struct;
     pub fn png_write_sig(png_ptr: &mut png_struct);
     pub fn png_write_chunk(png_ptr: &mut png_struct, chunk_name: *const u8, data: *const u8, length: usize);
@@ -866,81 +654,29 @@ extern "C" {
     pub fn png_get_bKGD(png_ptr: &png_struct, info_ptr: &mut png_info, background: *mut *mut png_color_16) -> u32;
     pub fn png_set_bKGD(png_ptr: &png_struct, info_ptr: &mut png_info, background: *const png_color_16);
     pub fn png_get_cHRM(
-        png_ptr: &png_struct,
-        info_ptr: &png_info,
-        white_x: &mut f64,
-        white_y: &mut f64,
-        red_x: &mut f64,
-        red_y: &mut f64,
-        green_x: &mut f64,
-        green_y: &mut f64,
-        blue_x: &mut f64,
-        blue_y: &mut f64,
+        png_ptr: &png_struct, info_ptr: &png_info, white_x: &mut f64, white_y: &mut f64, red_x: &mut f64, red_y: &mut f64, green_x: &mut f64, green_y: &mut f64, blue_x: &mut f64, blue_y: &mut f64
     ) -> u32;
     pub fn png_get_cHRM_XYZ(
-        png_ptr: &png_struct,
-        info_ptr: &png_info,
-        red_X: &mut f64,
-        red_Y: &mut f64,
-        red_Z: &mut f64,
-        green_X: &mut f64,
-        green_Y: &mut f64,
-        green_Z: &mut f64,
-        blue_X: &mut f64,
-        blue_Y: &mut f64,
+        png_ptr: &png_struct, info_ptr: &png_info, red_X: &mut f64, red_Y: &mut f64, red_Z: &mut f64, green_X: &mut f64, green_Y: &mut f64, green_Z: &mut f64, blue_X: &mut f64, blue_Y: &mut f64,
         blue_Z: &mut f64,
     ) -> u32;
     pub fn png_get_cHRM_fixed(
-        png_ptr: &png_struct,
-        info_ptr: &png_info,
-        int_white_x: &mut png_fixed_point,
-        int_white_y: &mut png_fixed_point,
-        int_red_x: &mut png_fixed_point,
-        int_red_y: &mut png_fixed_point,
-        int_green_x: &mut png_fixed_point,
-        int_green_y: &mut png_fixed_point,
-        int_blue_x: &mut png_fixed_point,
-        int_blue_y: &mut png_fixed_point,
+        png_ptr: &png_struct, info_ptr: &png_info, int_white_x: &mut png_fixed_point, int_white_y: &mut png_fixed_point, int_red_x: &mut png_fixed_point, int_red_y: &mut png_fixed_point,
+        int_green_x: &mut png_fixed_point, int_green_y: &mut png_fixed_point, int_blue_x: &mut png_fixed_point, int_blue_y: &mut png_fixed_point,
     ) -> u32;
     pub fn png_get_cHRM_XYZ_fixed(
-        png_ptr: &png_struct,
-        info_ptr: &png_info,
-        int_red_X: &mut png_fixed_point,
-        int_red_Y: &mut png_fixed_point,
-        int_red_Z: &mut png_fixed_point,
-        int_green_X: &mut png_fixed_point,
-        int_green_Y: &mut png_fixed_point,
-        int_green_Z: &mut png_fixed_point,
-        int_blue_X: &mut png_fixed_point,
-        int_blue_Y: &mut png_fixed_point,
-        int_blue_Z: &mut png_fixed_point,
+        png_ptr: &png_struct, info_ptr: &png_info, int_red_X: &mut png_fixed_point, int_red_Y: &mut png_fixed_point, int_red_Z: &mut png_fixed_point, int_green_X: &mut png_fixed_point,
+        int_green_Y: &mut png_fixed_point, int_green_Z: &mut png_fixed_point, int_blue_X: &mut png_fixed_point, int_blue_Y: &mut png_fixed_point, int_blue_Z: &mut png_fixed_point,
     ) -> u32;
     pub fn png_set_cHRM(png_ptr: &png_struct, info_ptr: &mut png_info, white_x: f64, white_y: f64, red_x: f64, red_y: f64, green_x: f64, green_y: f64, blue_x: f64, blue_y: f64);
     pub fn png_set_cHRM_XYZ(png_ptr: &png_struct, info_ptr: &mut png_info, red_X: f64, red_Y: f64, red_Z: f64, green_X: f64, green_Y: f64, green_Z: f64, blue_X: f64, blue_Y: f64, blue_Z: f64);
     pub fn png_set_cHRM_fixed(
-        png_ptr: &png_struct,
-        info_ptr: &mut png_info,
-        int_white_x: png_fixed_point,
-        int_white_y: png_fixed_point,
-        int_red_x: png_fixed_point,
-        int_red_y: png_fixed_point,
-        int_green_x: png_fixed_point,
-        int_green_y: png_fixed_point,
-        int_blue_x: png_fixed_point,
-        int_blue_y: png_fixed_point,
+        png_ptr: &png_struct, info_ptr: &mut png_info, int_white_x: png_fixed_point, int_white_y: png_fixed_point, int_red_x: png_fixed_point, int_red_y: png_fixed_point,
+        int_green_x: png_fixed_point, int_green_y: png_fixed_point, int_blue_x: png_fixed_point, int_blue_y: png_fixed_point,
     );
     pub fn png_set_cHRM_XYZ_fixed(
-        png_ptr: &png_struct,
-        info_ptr: &mut png_info,
-        int_red_X: png_fixed_point,
-        int_red_Y: png_fixed_point,
-        int_red_Z: png_fixed_point,
-        int_green_X: png_fixed_point,
-        int_green_Y: png_fixed_point,
-        int_green_Z: png_fixed_point,
-        int_blue_X: png_fixed_point,
-        int_blue_Y: png_fixed_point,
-        int_blue_Z: png_fixed_point,
+        png_ptr: &png_struct, info_ptr: &mut png_info, int_red_X: png_fixed_point, int_red_Y: png_fixed_point, int_red_Z: png_fixed_point, int_green_X: png_fixed_point, int_green_Y: png_fixed_point,
+        int_green_Z: png_fixed_point, int_blue_X: png_fixed_point, int_blue_Y: png_fixed_point, int_blue_Z: png_fixed_point,
     );
     pub fn png_get_gAMA(png_ptr: &png_struct, info_ptr: &png_info, file_gamma: &mut f64) -> u32;
     pub fn png_get_gAMA_fixed(png_ptr: &png_struct, info_ptr: &png_info, int_file_gamma: *mut png_fixed_point) -> u32;
@@ -949,38 +685,16 @@ extern "C" {
     pub fn png_get_hIST(png_ptr: &png_struct, info_ptr: &mut png_info, hist: *mut *mut u16) -> u32;
     pub fn png_set_hIST(png_ptr: &png_struct, info_ptr: &mut png_info, hist: *const u16);
     pub fn png_get_IHDR(
-        png_ptr: &png_struct,
-        info_ptr: &png_info,
-        width: &mut u32,
-        height: &mut u32,
-        bit_depth: &mut c_int,
-        color_type: &mut c_int,
-        interlace_method: &mut c_int,
-        compression_method: &mut c_int,
+        png_ptr: &png_struct, info_ptr: &png_info, width: &mut u32, height: &mut u32, bit_depth: &mut c_int, color_type: &mut c_int, interlace_method: &mut c_int, compression_method: &mut c_int,
         filter_method: &mut c_int,
     ) -> u32;
     pub fn png_set_IHDR(
-        png_ptr: &png_struct,
-        info_ptr: &mut png_info,
-        width: u32,
-        height: u32,
-        bit_depth: c_int,
-        color_type: c_int,
-        interlace_method: c_int,
-        compression_method: c_int,
-        filter_method: c_int,
+        png_ptr: &png_struct, info_ptr: &mut png_info, width: u32, height: u32, bit_depth: c_int, color_type: c_int, interlace_method: c_int, compression_method: c_int, filter_method: c_int
     );
     pub fn png_get_oFFs(png_ptr: &png_struct, info_ptr: &png_info, offset_x: &mut i32, offset_y: &mut i32, unit_type: &mut c_int) -> u32;
     pub fn png_set_oFFs(png_ptr: &png_struct, info_ptr: &mut png_info, offset_x: i32, offset_y: i32, unit_type: c_int);
     pub fn png_get_pCAL(
-        png_ptr: &png_struct,
-        info_ptr: &mut png_info,
-        purpose: *mut *mut c_char,
-        X0: &mut i32,
-        X1: &mut i32,
-        type_: &mut c_int,
-        nparams: &mut c_int,
-        units: *mut *mut c_char,
+        png_ptr: &png_struct, info_ptr: &mut png_info, purpose: *mut *mut c_char, X0: &mut i32, X1: &mut i32, type_: &mut c_int, nparams: &mut c_int, units: *mut *mut c_char,
         params: *mut *mut *mut c_char,
     ) -> u32;
     pub fn png_set_pCAL(png_ptr: &png_struct, info_ptr: &mut png_info, purpose: *const c_char, X0: i32, X1: i32, type_: c_int, nparams: c_int, units: *const c_char, params: *mut *mut c_char);
@@ -1070,51 +784,15 @@ pub struct png_image {
 fn bindgen_test_layout_png_image() {
     assert_eq!(::std::mem::size_of::<png_image>(), 104usize, concat!("Size of: ", stringify!(png_image)));
     assert_eq!(::std::mem::align_of::<png_image>(), 8usize, concat!("Alignment of ", stringify!(png_image)));
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).opaque as *const _ as usize },
-        0usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(opaque))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).version as *const _ as usize },
-        8usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(version))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).width as *const _ as usize },
-        12usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(width))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).height as *const _ as usize },
-        16usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(height))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).format as *const _ as usize },
-        20usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(format))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).flags as *const _ as usize },
-        24usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(flags))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).colormap_entries as *const _ as usize },
-        28usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(colormap_entries))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).warning_or_error as *const _ as usize },
-        32usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(warning_or_error))
-    );
-    assert_eq!(
-        unsafe { &(*(0 as *const png_image)).message as *const _ as usize },
-        36usize,
-        concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(message))
-    );
+    assert_eq!(unsafe { &(*(0 as *const png_image)).opaque as *const _ as usize }, 0usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(opaque)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).version as *const _ as usize }, 8usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(version)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).width as *const _ as usize }, 12usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(width)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).height as *const _ as usize }, 16usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(height)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).format as *const _ as usize }, 20usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(format)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).flags as *const _ as usize }, 24usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(flags)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).colormap_entries as *const _ as usize }, 28usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(colormap_entries)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).warning_or_error as *const _ as usize }, 32usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(warning_or_error)));
+    assert_eq!(unsafe { &(*(0 as *const png_image)).message as *const _ as usize }, 36usize, concat!("Alignment of field: ", stringify!(png_image), "::", stringify!(message)));
 }
 extern "C" {
     pub fn png_image_begin_read_from_file(image: *mut png_image, file_name: *const c_char) -> c_int;
@@ -1125,13 +803,7 @@ extern "C" {
     pub fn png_image_write_to_file(image: *mut png_image, file: *const c_char, convert_to_8bit: c_int, buffer: *const c_void, row_stride: i32, colormap: *const c_void) -> c_int;
     pub fn png_image_write_to_stdio(image: *mut png_image, file: *mut FILE, convert_to_8_bit: c_int, buffer: *const c_void, row_stride: i32, colormap: *const c_void) -> c_int;
     pub fn png_image_write_to_memory(
-        image: *mut png_image,
-        memory: *mut c_void,
-        memory_bytes: *mut usize,
-        convert_to_8_bit: c_int,
-        buffer: *const c_void,
-        row_stride: i32,
-        colormap: *const c_void,
+        image: *mut png_image, memory: *mut c_void, memory_bytes: *mut usize, convert_to_8_bit: c_int, buffer: *const c_void, row_stride: i32, colormap: *const c_void
     ) -> c_int;
     pub fn png_set_option(png_ptr: &mut png_struct, option: c_int, onoff: c_int) -> c_int;
 }
