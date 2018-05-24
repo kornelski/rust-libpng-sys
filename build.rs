@@ -30,7 +30,7 @@ fn try_libpng_config(wants_static: bool) -> bool {
 
     if let Some(libdir) = libpng_config(wants_static, "--libdir") {
         let libdir = libdir.trim_right();
-        println!("cargo:rustc-link-search=native={}", libdir.trim_right());
+        println!("cargo:rustc-link-search=native={}", libdir);
         println!("cargo:root={}", libdir);
     } else {
         return false;
@@ -41,22 +41,31 @@ fn try_libpng_config(wants_static: bool) -> bool {
         println!("cargo:include={}", env::join_paths(dirs).unwrap().to_string_lossy());
     }
 
-    if let Some(libs) = libpng_config(wants_static, "--libs") {
-        for lib in libs.trim_right().split_whitespace() {
-            if lib.starts_with("-l") {
-                let lib_name = &lib[2..];
-                let link_static = if lib_name.contains("png") {wants_static} else {
-                    let lib_name = lib_name.to_uppercase();
-                    env::var_os(format!("{}_STATIC", lib_name)).is_some() ||
-                    env::var_os(format!("LIB{}_STATIC", lib_name)).is_some()
-                };
-                println!("cargo:rustc-link-lib={}{}", if link_static {"static="} else {""}, lib_name);
-            }
-        }
+    if let Some(args) = libpng_config(wants_static, "--libs") {
+        libs_from_args(&args, wants_static);
     } else {
         return false;
     }
     true
+}
+
+fn libs_from_args(libs: &str, wants_static: bool) {
+    let mut args = libs.trim_right().split_whitespace();
+    while let Some(lib) = args.next() {
+        if lib.starts_with("-l") {
+            let lib_name = if lib.len() == 2 {
+                &args.next().expect("-l with argument")
+            } else {
+                &lib[2..]
+            };
+            let link_static = if lib_name.contains("png") {wants_static} else {
+                let lib_name = lib_name.to_uppercase();
+                env::var_os(format!("{}_STATIC", lib_name)).is_some() ||
+                env::var_os(format!("LIB{}_STATIC", lib_name)).is_some()
+            };
+            println!("cargo:rustc-link-lib={}{}", if link_static {"static="} else {""}, lib_name);
+        }
+    }
 }
 
 fn libpng_config(wants_static: bool, arg: &str) -> Option<String> {
