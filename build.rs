@@ -7,14 +7,16 @@ use std::process;
 use std::path::PathBuf;
 
 fn main() {
-    let wants_static = cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
+    let build = cfg!(feature = "build");
+    let std_zlib = cfg!(feature = "zlib-sys");
+    let wants_static = build || cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
 
-    if !try_libpng_config(wants_static) && !try_pkgconfig(wants_static) {
-        build_static();
+    if build || (!try_libpng_config(wants_static, std_zlib) && !try_pkgconfig(wants_static)) {
+        build_static(std_zlib);
     }
 }
 
-fn try_libpng_config(wants_static: bool) -> bool {
+fn try_libpng_config(wants_static: bool, std_zlib: bool) -> bool {
     let cross_compile = env::var("TARGET") != env::var("HOST");
     if cross_compile {
         return false; // libpng-config is not aware of platform differences
@@ -42,14 +44,14 @@ fn try_libpng_config(wants_static: bool) -> bool {
     }
 
     if let Some(args) = libpng_config(wants_static, "--libs") {
-        libs_from_args(&args, wants_static);
+        libs_from_args(&args, wants_static, std_zlib);
     } else {
         return false;
     }
     true
 }
 
-fn libs_from_args(libs: &str, wants_static: bool) {
+fn libs_from_args(libs: &str, wants_static: bool, std_zlib: bool) {
     let mut args = libs.trim_right().split_whitespace();
     while let Some(lib) = args.next() {
         if lib.starts_with("-l") {
@@ -58,6 +60,9 @@ fn libs_from_args(libs: &str, wants_static: bool) {
             } else {
                 &lib[2..]
             };
+            if !std_zlib && "z" == lib_name {
+                continue;
+            }
             let link_static = if lib_name.contains("png") {wants_static} else {
                 let lib_name = lib_name.to_uppercase();
                 env::var_os(format!("{}_STATIC", lib_name)).is_some() ||
@@ -97,7 +102,7 @@ fn try_pkgconfig(wants_static: bool) -> bool {
     false
 }
 
-fn build_static() {
+fn build_static(std_zlib: bool) {
     let mut cc = cc::Build::new();
     cc.warnings(false);
 
@@ -106,12 +111,14 @@ fn build_static() {
 
     if let Some(inc) = env::var_os("DEP_Z_INCLUDE") {
         includes.push(PathBuf::from(inc));
-    } else if let Ok(libz) = pkg_config::probe_library("z") {
-        for path in libz.include_paths {
-            includes.push(PathBuf::from(path));
+    } else if std_zlib {
+        if let Ok(libz) = pkg_config::probe_library("z") {
+            for path in libz.include_paths {
+                includes.push(PathBuf::from(path));
+            }
+        } else {
+            println!("cargo:rustc-link-lib=z");
         }
-    } else {
-        println!("cargo:rustc-link-lib=z");
     }
 
     println!("cargo:include={}", env::join_paths(&includes).unwrap().to_string_lossy());
