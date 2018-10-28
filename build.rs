@@ -126,14 +126,14 @@ fn build_static(std_zlib: bool) {
         }
     }
 
-    println!("cargo:include={}", env::join_paths(&includes).unwrap().to_string_lossy());
     println!("cargo:root={}", out_dir.display());
+
+    includes.push(out_dir);
+    println!("cargo:include={}", env::join_paths(&includes).unwrap().to_string_lossy());
 
     for path in includes {
         cc.include(path);
     }
-
-    cc.include(out_dir);
 
     cc
         .file("vendor/png.c")
