@@ -5,6 +5,7 @@ extern crate dunce;
 use std::env;
 use std::process;
 use std::path::PathBuf;
+use std::fs;
 
 fn main() {
     let build = cfg!(feature = "build");
@@ -107,6 +108,10 @@ fn build_static(std_zlib: bool) {
     cc.warnings(false);
 
     let vendor = dunce::canonicalize("vendor").unwrap();
+
+    let out_dir = PathBuf::from(env::var_os("OUT_DIR").unwrap());
+    fs::copy(vendor.join("scripts/pnglibconf.h.prebuilt"), out_dir.join("pnglibconf.h")).unwrap();
+
     let mut includes = vec![vendor];
 
     if let Some(inc) = env::var_os("DEP_Z_INCLUDE") {
@@ -122,11 +127,13 @@ fn build_static(std_zlib: bool) {
     }
 
     println!("cargo:include={}", env::join_paths(&includes).unwrap().to_string_lossy());
-    println!("cargo:root={}", env::var("OUT_DIR").unwrap());
+    println!("cargo:root={}", out_dir.display());
 
     for path in includes {
         cc.include(path);
     }
+
+    cc.include(out_dir);
 
     cc
         .file("vendor/png.c")
