@@ -24,7 +24,11 @@ fn try_libpng_config(wants_static: bool, std_zlib: bool) -> bool {
     }
 
     if let Some(ver) = libpng_config(wants_static, "--version") {
-        if ver.trim_left().starts_with("1.2") {
+        // require >= 1.6
+        let mut ver = ver.split('.');
+        let major = ver.next().and_then(|n| n.parse().ok()).unwrap_or(0);
+        let minor = ver.next().and_then(|n| n.parse().ok()).unwrap_or(0);
+        if major == 1 && minor < 6 {
             return false;
         }
     } else {
@@ -90,7 +94,7 @@ fn libpng_config(wants_static: bool, arg: &str) -> Option<String> {
 fn try_pkgconfig(wants_static: bool) -> bool {
     let mut pkg = pkg_config::Config::new();
     pkg.statik(wants_static);
-    pkg.atleast_version("1.4"); // 1.2 is shite
+    pkg.atleast_version("1.6"); // don't use old versions as they cause C API pains
     if let Ok(lib) = pkg.probe("libpng") {
         if let Some(path) = lib.include_paths.get(0) {
             println!("cargo:include={}", path.display());

@@ -1,4 +1,4 @@
-Unreliable bindings for libpng.
+Unreliable bindings for libpng 1.6.
 
 They're likely to bring sorrow and regret. Please use a native Rust PNG library instead (e.g. [LodePNG 2.x](https://crates.io/crates/lodepng)).
 
