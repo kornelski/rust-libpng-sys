@@ -12,8 +12,15 @@ fn main() {
     let std_zlib = cfg!(feature = "zlib-sys");
     let wants_static = build || cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
 
-    if build || (!try_libpng_config(wants_static, std_zlib) && !try_pkgconfig(wants_static)) {
+    // we don't trust libpng-config or pkg-config to supply valid static library,
+    // especially that Rust only accepts ones compiled with -fPIC
+    if build || wants_static {
         build_static(std_zlib);
+        return;
+    }
+
+    if !try_libpng_config(wants_static, std_zlib) {
+        try_pkgconfig(wants_static);
     }
 }
 
@@ -112,9 +119,14 @@ fn build_static(std_zlib: bool) {
     cc.warnings(false);
 
     let vendor = dunce::canonicalize("vendor").unwrap();
+    let prebuild_conf = vendor.join("scripts/pnglibconf.h.prebuilt");
+
+    if !vendor.exists() || !prebuild_conf.exists() {
+        panic!("libpng-sys: vendor/ dir is missing. Try running `git submodule update --init`");
+    }
 
     let out_dir = PathBuf::from(env::var_os("OUT_DIR").unwrap());
-    fs::copy(vendor.join("scripts/pnglibconf.h.prebuilt"), out_dir.join("pnglibconf.h")).unwrap();
+    fs::copy(prebuild_conf, out_dir.join("pnglibconf.h")).unwrap();
 
     let mut includes = vec![vendor];
 
