@@ -530,7 +530,7 @@ extern "C" {
     pub fn png_write_chunk_start(png_ptr: &mut png_struct, chunk_name: *const u8, length: u32);
     pub fn png_write_chunk_data(png_ptr: &mut png_struct, data: *const u8, length: usize);
     pub fn png_write_chunk_end(png_ptr: &mut png_struct);
-    pub fn png_create_info(png_ptr: &png_struct) -> *mut png_info;
+    pub fn png_create_info_struct(png_ptr: &png_struct) -> *mut png_info;
     pub fn png_info_init_3(info_ptr: *mut *mut png_info, png_info_struct_size: usize);
     pub fn png_write_info_before_PLTE(png_ptr: &mut png_struct, info_ptr: &png_info);
     pub fn png_write_info(png_ptr: &mut png_struct, info_ptr: &png_info);
