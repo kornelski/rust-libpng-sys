@@ -1,8 +1,6 @@
 //! # This is not the documentation you're looking for
 //! See [libpng documentation](http://libpng.org/pub/png/libpng-manual.txt) instead.
 
-#[cfg(feature="libz-sys")]
-extern crate libz_sys;
 
 #[cfg(feature="cloudflare-zlib-sys")]
 extern crate cloudflare_zlib_sys;

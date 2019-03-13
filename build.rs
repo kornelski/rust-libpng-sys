@@ -1,6 +1,3 @@
-extern crate pkg_config;
-extern crate cc;
-extern crate dunce;
 
 use std::env;
 use std::process;
@@ -43,7 +40,7 @@ fn try_libpng_config(wants_static: bool, std_zlib: bool) -> bool {
     }
 
     if let Some(libdir) = libpng_config(wants_static, "--libdir") {
-        let libdir = libdir.trim_right();
+        let libdir = libdir.trim_end();
         println!("cargo:rustc-link-search=native={}", libdir);
         println!("cargo:root={}", libdir);
     } else {
@@ -64,7 +61,7 @@ fn try_libpng_config(wants_static: bool, std_zlib: bool) -> bool {
 }
 
 fn libs_from_args(libs: &str, wants_static: bool, std_zlib: bool) {
-    let mut args = libs.trim_right().split_whitespace();
+    let mut args = libs.trim_end().split_whitespace();
     while let Some(lib) = args.next() {
         if lib.starts_with("-l") {
             let lib_name = if lib.len() == 2 {

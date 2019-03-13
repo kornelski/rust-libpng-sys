@@ -1,18 +1,17 @@
 #![allow(non_camel_case_types)]
 #![allow(non_upper_case_globals)]
 #![allow(non_snake_case)]
-extern crate libc;
 
 use std::os::raw::*;
-use self::libc::FILE;
+use libc::FILE;
 
 #[cfg(not(windows))]
-use self::libc::tm;
+use libc::tm;
 #[cfg(windows)]
 pub type tm = c_void;
 
 pub type jmp_buf = c_void;
-use self::libc::time_t;
+use libc::time_t;
 
 pub const PNG_LIBPNG_VER_SONUM: c_uint = 16;
 pub const PNG_LIBPNG_VER_DLLNUM: c_uint = 16;
