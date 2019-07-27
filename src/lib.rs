@@ -5,7 +5,20 @@
 #[cfg(feature="cloudflare-zlib-sys")]
 extern crate cloudflare_zlib_sys;
 
+#[cfg(all(feature="libz-sys", not(feature="cloudflare-zlib-sys")))]
+extern crate libz_sys;
+
 pub mod ffi;
+
+#[test]
+fn z() {
+    extern "C" {
+        fn deflateEnd(x: *mut u8) -> std::os::raw::c_int;
+    }
+    unsafe {
+        deflateEnd(std::ptr::null_mut());
+    }
+}
 
 #[test]
 fn links() {
