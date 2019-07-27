@@ -13,6 +13,7 @@ pub type tm = c_void;
 pub type jmp_buf = c_void;
 use libc::time_t;
 
+pub const PNG_LIBPNG_VER_STRING: *const c_char = "1.6.rust".as_ptr() as *const c_char;
 pub const PNG_LIBPNG_VER_SONUM: c_uint = 16;
 pub const PNG_LIBPNG_VER_DLLNUM: c_uint = 16;
 pub const PNG_LIBPNG_VER_MAJOR: c_uint = 1;
@@ -511,8 +512,8 @@ extern "C" {
     pub fn png_access_version_number() -> u32;
     pub fn png_set_sig_bytes(png_ptr: &mut png_struct, num_bytes: c_int);
     pub fn png_sig_cmp(sig: *const u8, start: usize, num_to_check: usize) -> c_int;
-    pub fn png_create_read(user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr) -> *mut png_struct;
-    pub fn png_create_write(user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr) -> *mut png_struct;
+    pub fn png_create_read_struct(user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr) -> *mut png_struct;
+    pub fn png_create_write_struct(user_png_ver: *const c_char, error_ptr: *mut c_void, error_fn: png_error_ptr, warn_fn: png_error_ptr) -> *mut png_struct;
     pub fn png_get_compression_buffer_size(png_ptr: &png_struct) -> usize;
     pub fn png_set_compression_buffer_size(png_ptr: &mut png_struct, size: usize);
     pub fn png_set_longjmp_fn(png_ptr: &mut png_struct, longjmp_fn: png_longjmp_ptr, jmp_buf_size: usize) -> *mut jmp_buf;
@@ -582,8 +583,8 @@ extern "C" {
     pub fn png_write_end(png_ptr: &mut png_struct, info_ptr: &mut png_info);
     pub fn png_read_end(png_ptr: &mut png_struct, info_ptr: &mut png_info);
     pub fn png_destroy_info(png_ptr: &png_struct, info_ptr_ptr: *mut *mut png_info);
-    pub fn png_destroy_read(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info, end_info_ptr_ptr: *mut *mut png_info);
-    pub fn png_destroy_write(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info);
+    pub fn png_destroy_read_struct(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info, end_info_ptr_ptr: *mut *mut png_info);
+    pub fn png_destroy_write_struct(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info);
     pub fn png_set_crc_action(png_ptr: &mut png_struct, crit_action: c_int, ancil_action: c_int);
     pub fn png_set_filter(png_ptr: &mut png_struct, method: c_int, filters: c_int);
     pub fn png_set_filter_heuristics(png_ptr: &mut png_struct, heuristic_method: c_int, num_weights: c_int, filter_weights: *const f64, filter_costs: *const f64);
