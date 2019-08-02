@@ -174,6 +174,16 @@ fn build_static(std_zlib: bool) {
         .file("vendor/pngwio.c")
         .file("vendor/pngwrite.c")
         .file("vendor/pngwtran.c")
-        .file("vendor/pngwutil.c")
-        .compile("libpng.a");
+        .file("vendor/pngwutil.c");
+
+    let arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+    if arch == "arm" || arch == "aarch64" {
+        cc
+            .file("vendor/arm/arm_init.c")
+            .file("vendor/arm/filter_neon_intrinsics.c")
+            .file("vendor/arm/filter_neon.S")
+            .file("vendor/arm/palette_neon_intrinsics.c");
+    }
+
+    cc.compile("libpng.a");
 }
