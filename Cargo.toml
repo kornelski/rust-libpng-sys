@@ -1,5 +1,5 @@
 [package]
-version = "1.1.6"
+version = "1.1.7"
 authors = ["Kornel <kornel@geekhood.net>"]
 description = "Unreliable bindings for libpng 1.6. They're likely to bring sorrow and regret. Please use a native Rust PNG library instead (e.g. LodePNG 2.0)"
 documentation = "http://libpng.org/pub/png/libpng-manual.txt"
