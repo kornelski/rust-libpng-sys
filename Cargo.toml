@@ -9,7 +9,7 @@ links = "png"
 name = "libpng-sys"
 readme = "README.md"
 repository = "https://github.com/kornelski/rust-libpng-sys.git"
-include = ["README.md", "Cargo.toml", "src/*.rs", "build.rs", "/vendor/*.c", "/vendor/*.h", "vendor/scripts/pnglibconf.h.prebuilt"]
+include = ["README.md", "Cargo.toml", "src/*.rs", "build.rs", "/vendor/*.c", "/vendor/*.h", "/vendor/arm/*.c", "/vendor/arm/*.h", "/vendor/arm/*.S", "vendor/scripts/pnglibconf.h.prebuilt"]
 edition = "2018"
 
 [build-dependencies]
