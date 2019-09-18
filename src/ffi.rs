@@ -582,7 +582,7 @@ extern "C" {
     pub fn png_write_image(png_ptr: &mut png_struct, image: *mut *mut u8);
     pub fn png_write_end(png_ptr: &mut png_struct, info_ptr: &mut png_info);
     pub fn png_read_end(png_ptr: &mut png_struct, info_ptr: &mut png_info);
-    pub fn png_destroy_info(png_ptr: &png_struct, info_ptr_ptr: *mut *mut png_info);
+    pub fn png_destroy_info_struct(png_ptr: &png_struct, info_ptr_ptr: *mut *mut png_info);
     pub fn png_destroy_read_struct(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info, end_info_ptr_ptr: *mut *mut png_info);
     pub fn png_destroy_write_struct(png_ptr_ptr: *mut *mut png_struct, info_ptr_ptr: *mut *mut png_info);
     pub fn png_set_crc_action(png_ptr: &mut png_struct, crit_action: c_int, ancil_action: c_int);
