@@ -1,6 +1,7 @@
 //! # This is not the documentation you're looking for
 //! See [libpng documentation](http://libpng.org/pub/png/libpng-manual.txt) instead.
-
+//!
+//! Consider using a native Rust PNG library instead (e.g. [LodePNG 2.x](https://lib.rs/crates/lodepng)).
 
 #[cfg(feature="cloudflare-zlib-sys")]
 extern crate cloudflare_zlib_sys;
