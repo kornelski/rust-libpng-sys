@@ -16,10 +16,8 @@ fn main() {
         return;
     }
 
-    if !try_libpng_config(wants_static, std_zlib) {
-        if !try_pkgconfig(wants_static) {
-            build_static(std_zlib);
-        }
+    if !try_libpng_config(wants_static, std_zlib) && !try_pkgconfig(wants_static) {
+        build_static(std_zlib);
     }
 }
 
@@ -74,7 +72,7 @@ fn libs_from_args(libs: &str, wants_static: bool, std_zlib: bool) {
     while let Some(lib) = args.next() {
         if lib.starts_with("-l") {
             let lib_name = if lib.len() == 2 {
-                &args.next().expect("-l with argument")
+                args.next().expect("-l with argument")
             } else {
                 &lib[2..]
             };
@@ -143,7 +141,7 @@ fn build_static(std_zlib: bool) {
     } else if std_zlib {
         if let Ok(libz) = pkg_config::probe_library("z") {
             for path in libz.include_paths {
-                includes.push(PathBuf::from(path));
+                includes.push(path);
             }
         } else {
             println!("cargo:rustc-link-lib=z");
