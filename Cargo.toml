@@ -1,5 +1,5 @@
 [package]
-version = "1.1.0"
+version = "1.1.9"
 authors = ["Kornel <kornel@geekhood.net>"]
 description = "Unreliable bindings for libpng 1.6. They're likely to bring sorrow and regret. Please use a native Rust PNG library instead (e.g. LodePNG 2.0)"
 documentation = "http://libpng.org/pub/png/libpng-manual.txt"
@@ -11,6 +11,8 @@ readme = "README.md"
 repository = "https://github.com/kornelski/rust-libpng-sys.git"
 include = ["README.md", "Cargo.toml", "src/*.rs", "build.rs", "/vendor/*.c", "/vendor/*.h", "/vendor/arm/*.c", "/vendor/arm/*.h", "/vendor/arm/*.S", "vendor/scripts/pnglibconf.h.prebuilt"]
 edition = "2021"
+categories = ["multimedia::images"]
+keywords = ["png", "codec", "ffi", "bindings"]
 
 [build-dependencies]
 cc = "1.0.72"
