@@ -6,7 +6,7 @@ use std::fs;
 
 fn main() {
     let build = cfg!(feature = "build");
-    let std_zlib = cfg!(feature = "zlib-sys");
+    let std_zlib = cfg!(feature = "libz-sys");
     let wants_static = build || cfg!(feature = "static") || env::var("PNG_STATIC").is_ok();
 
     // we don't trust libpng-config or pkg-config to supply valid static library,
@@ -144,6 +144,7 @@ fn build_static(std_zlib: bool) {
                 includes.push(path);
             }
         } else {
+            println!("cargo:warning=libpng-sys crate could not find libz headers");
             println!("cargo:rustc-link-lib=z");
         }
     }
