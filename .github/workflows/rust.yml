@@ -17,8 +17,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout submodules
-      run: git submodule update --init --recursive
-    - uses: actions/checkout@v4
+      run: actions/checkout@v4
+      with:
+        submodules: true
     - name: Build
       run: cargo build --verbose
     - name: Run tests
